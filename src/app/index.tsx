@@ -1,20 +1,21 @@
 import {View,Text,TouchableOpacity,StyleSheet} from 'react-native'
-import {Link}from 'expo-router'
+import {router}from 'expo-router'
 /*No expo Router tem que ter exporD default para aplicação 
 reconhecer a tela principal de rotas.
 */
 export default function Index(){
+    function singup(){
+        router.navigate('/sign-up')
+    }
     return(
         <View style={styles.container}>
-            {/* Passando propriedade do link para TouchableOpacity com asChild */}
-            <Link href="/sign-up" asChild>
-                <TouchableOpacity style={styles.button}>
+
+                <TouchableOpacity style={styles.button} onPress={singup}>
                 <Text
                 style={styles.label}>
                     Criar Conta
                 </Text>
                 </TouchableOpacity>
-            </Link>
         </View>
     )
 }
